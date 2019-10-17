@@ -45,6 +45,7 @@ class Search extends React.Component {
       MovieList : unique
     });
     event.preventDefault();
+    this.props.parentCallback("child message");
   }
 
   filterByValue(array, string) {
@@ -55,7 +56,7 @@ class Search extends React.Component {
 
   render () { 
     return (
-    <div className="search">
+    <div className="search container background">
     <form onSubmit={this.handleSubmit} >
       <label>
         Movie Name

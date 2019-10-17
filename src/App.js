@@ -7,14 +7,18 @@ import SearchTable  from './components/Table/SearchTable';
 
 
 class App extends React.Component {
-
+  state = { message: "parent message" }
+  callbackFunction = (childData) => {
+    this.setState({message: childData})
+}
 
   render () {
     return (
       <div>
         <Header/>
         <div className="MainDiv">
-          <Search/>
+          <Search parentCallback = {this.callbackFunction}/>
+          <p> {this.state.message} </p>
           <SearchTable/>
       </div>
       <Footer/>
@@ -23,5 +27,6 @@ class App extends React.Component {
     );
   }
 }
+
 
 export default App;
